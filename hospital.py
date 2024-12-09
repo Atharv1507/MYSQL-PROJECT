@@ -1,4 +1,8 @@
+from tkinter import*
 import mysql.connector as mc
+
+
+root=Tk()
 
 y=mc.connect(host='localhost',user='root',password='Atharv123',database='hospital')
 global table
@@ -10,6 +14,9 @@ pkeys={'emp':'emp_no','patients':'pId','stock':'Icode'}
 fkeys={'emp':'emp_no','patients':'doc'}
 print("available tables are ",tables)
 table=input("enter the name of the table to work with: ")
+
+Welcome=Label(root,text="WELCOME TO THE HOSPITAL DBMS")
+Welcome.pack()
 
 
 def fetchall(TbN):
@@ -195,8 +202,11 @@ def deleteData():
         
     
 
+ShowT=Label(root,text="Current working table "+table)
+ShowT.pack()
 
 def main():
+    root.mainloop()
     global table
     print("Current working table ",table)
     print('Available function are:\n 1.Add\n 2.Delete\n 3.alter data\n 4.Select\n 5.Quit\n 6.Change Table')
@@ -223,3 +233,4 @@ while table in tables and Isrun==True:
 else:
     print("No such table")
     y.close()
+
