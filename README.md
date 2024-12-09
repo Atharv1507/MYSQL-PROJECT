@@ -1,0 +1,3 @@
+This project is terminal based...
+
+A revised version of the same is in progress where in we will make this system GUI based
